@@ -16,10 +16,10 @@ module.exports = function (application) {
     ],function (req, res) {
         const errors = validationResult(req);
         var miojo = req.body;
-        console.log(errors);
+        console.log(miojo);
         if(!errors.isEmpty()){
             return res.render('preparaMiojo', {errors: errors.array(), miojo: miojo})
         }
-        application.app.controllers.controladorMiojo.preparaMiojo(application, req, res);
+        application.controllers.controladorMiojo.preparaMiojo(application, req, res);
     });
 }

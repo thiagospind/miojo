@@ -10,7 +10,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <script src="/js/jquery.mask.js"></script>
-    <script src="/js/mask.js"></script>
     <link rel="stylesheet" type="text/css" href="/css/miojo.css"/>
 
     <title>Miojo Food</title>
@@ -22,18 +21,28 @@
             <div class="card-body">
                 <p class="h2 text-center">Hora do Miojo</p>
                 <br>
-                <form action="/preparamiojo" method="post">
+                <% if (errors.length > 0){ %>
+                    <div class="alert alert-danger" role="alert">
+                        <strong>Atenção</strong>
+                        <ul>
+                            <% for (var i=0; i < errors.length; i++) { %>
+                                <li><%= errors[i].msg %></li>
+                            <% } %>
+                        </ul>
+                    </div>
+                <% }%>
+                <form action="/miojo" method="post">
                     <div class="form-group">
                         <label for="ampulheta1">Tempo da Ampulheta 1 (Minutos)</label>
-                        <input class="form-control" type="number" id="ampulheta1" name="ampulheta1">
+                        <input class="form-control" type="number" id="ampulheta1" name="ampulheta1" value="<%= miojo.ampulheta1 %>">
                     </div>
                     <div class="form-group">
                         <label for="ampulheta2">Tempo da Ampulheta 2 (Minutos)</label>
-                        <input class="form-control" type="number" id="ampulheta2" name="ampulheta2">
+                        <input class="form-control" type="number" id="ampulheta2" name="ampulheta2" value="<%= miojo.ampulheta2 %>">
                     </div>
                     <div class="form-group">
                         <label for="tempoPreparo">Tempo de Preparo (Minutos)</label>
-                        <input class="form-control" type="number" id="tempoPreparo" name="tempoPreparo">
+                        <input class="form-control" type="number" id="tempoPreparo" name="tempoPreparo" <%= miojo.tempoPreparo %>>
                     </div>
 
                     <button class="btn btn-outline-primary" type="submit">Enviar</button>
