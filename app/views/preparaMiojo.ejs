@@ -12,7 +12,7 @@
     <script src="/js/jquery.mask.js"></script>
     <link rel="stylesheet" type="text/css" href="/css/miojo.css"/>
 
-    <title>Miojo Food</title>
+    <title>Preparando Miojo</title>
 </head>
 <body>
     <div class="container">
@@ -42,7 +42,7 @@
                     </div>
                     <div class="form-group">
                         <label for="tempoPreparo">Tempo de Preparo (Minutos)</label>
-                        <input class="form-control" type="number" id="tempoPreparo" name="tempoPreparo" <%= miojo.tempoPreparo %>>
+                        <input class="form-control" type="number" id="tempoPreparo" name="tempoPreparo" value="<%= miojo.tempoPreparo %>">
                     </div>
 
                     <button class="btn btn-outline-primary" type="submit">Enviar</button>

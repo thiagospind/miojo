@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="/js/jquery.mask.js"></script>
+    <link rel="stylesheet" type="text/css" href="/css/miojo.css"/>
+
+    <title>Resultado Miojo</title>
+</head>
+<body>
+    <div class="container">
+
+        <div class="card card-miojo mt-3 pt-3 mx-auto">
+            <div class="card-body">
+                <p class="h2 text-center">Hora do Miojo</p>
+                <br>
+                <% if (msg.length > 0){ %>
+                    <div class="<%= tempo != '' ? 'alert alert-success' : 'alert alert-danger' %>" role="alert">
+                        <p class="h6 text-center mb-2 pb-2"><%= msg %></p>
+
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="basic-addon1">Ampulheta 1:</span>
+                                </div>
+                                <input type="text" class="form-control" id="ampulheta1" aria-describedby="basic-addon3" value="<%= miojo.ampulheta1 %>" disabled>
+                            </div>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="basic-addon2">Ampulheta 2:</span>
+                                </div>
+                                <input type="text" class="form-control" id="ampulheta2" aria-describedby="basic-addon3" value="<%= miojo.ampulheta2 %>" disabled>
+                            </div>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="basic-addon3">Tempo Preparo:</span>
+                                </div>
+                                <input type="text" class="form-control" id="tempoPreparo" aria-describedby="basic-addon3" value="<%= miojo.tempoPreparo %>" disabled>
+                            </div>
+                        <% if (tempo != ''){ %>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="basic-addon4">Tempo Total:</span>
+                                </div>
+                                <input type="text" class="form-control" id="tempoTotal" aria-describedby="basic-addon3" value="<%= tempo %>" disabled>
+                            </div>
+                        <% }%>
+                    </div>
+                <% }%>
+                <a href="/miojo" class="btn btn-outline-primary" >Novo Preparo</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
